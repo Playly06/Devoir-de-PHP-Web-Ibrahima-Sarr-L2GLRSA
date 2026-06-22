@@ -31,12 +31,26 @@
                             require_once dirname(__DIR__).'/view/index.php';
                         }else{
                             if($type=="Depot"){
-                                $transaction=new transaction();
-                                $transaction->setDateHeure($DateHeure);
-                                $transaction->setCode($code);
-                                $transaction->setMontant((int)$montant);
-                                $transaction->setType($type);
-                                transactionService::ajouterTransaction($transaction);
+                                $frais=$montant/100;
+                                if ($frais<5000){
+                                    $nouveau_montant=$montant-$frais;
+                                    $transaction=new transaction();
+                                    $transaction->setDateHeure($DateHeure);
+                                    $transaction->setCode($code);
+                                    $transaction->setMontant((int)$nouveau_montant);
+                                    $transaction->setType($type);
+                                    transactionService::ajouterTransaction($transaction);
+                                }else{
+                                    $frais=5000;
+                                    $nouveau_montant=$montant-$frais;
+                                    $transaction=new transaction();
+                                    $transaction->setDateHeure($DateHeure);
+                                    $transaction->setCode($code);
+                                    $transaction->setMontant((int)$nouveau_montant);
+                                    $transaction->setType($type);
+                                    transactionService::ajouterTransaction($transaction);
+                                }
+                            }else{
                             }
                         }
                     }
