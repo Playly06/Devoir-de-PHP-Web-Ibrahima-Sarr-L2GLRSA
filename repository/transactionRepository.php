@@ -12,7 +12,7 @@
             $dbConnection=new dbConnection();
 
             try{
-                $pdo=new PDO("mysql:host=127.0.0.1;dbname=transactions;",$dbConnection->getUsername(),$dbConnection->getPassword());
+                $pdo=new PDO("mysql:host=127.0.0.1;dbname=comptes;",$dbConnection->getUsername(),$dbConnection->getPassword());
                 $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
                 $sql="INSERT INTO transaction (code,DateHeure,montant,type)
                 VALUES ('$DateHeure','$code',$montant,'$type')";
@@ -28,7 +28,7 @@
         public static function AvoirTransaction():array{
             try{
                 $dbConnection=new dbConnection();
-                $pdo=new PDO("mysql:host=127.0.0.1;dbname=games;",$dbConnection->getUsername(),$dbConnection->getPassword());
+                $pdo=new PDO("mysql:host=127.0.0.1;dbname=comptes;",$dbConnection->getUsername(),$dbConnection->getPassword());
                 $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
                 $sql="SELECT * FROM transaction";
                 $cursor=$pdo->query($sql);

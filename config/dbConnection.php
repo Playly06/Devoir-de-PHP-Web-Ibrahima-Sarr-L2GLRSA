@@ -2,7 +2,7 @@
     class dbConnection{
         private string $host='127.0.0.1';
         private string $port='3306';
-        private string $db='transactions';
+        private string $db='comptes';
         private string $username='root';
         private string $password='';
         private int $nbre=0;
