@@ -30,12 +30,14 @@
                             $errors["montant"]="montant trop petit";
                             require_once dirname(__DIR__).'/view/index.php';
                         }else{
-                            $transaction=new transaction();
-                            $transaction->setDateHeure($DateHeure);
-                            $transaction->setCode($code);
-                            $transaction->setMontant((int)$montant);
-                            $transaction->setType($type);
-                            transactionService::ajouterTransaction($transaction);
+                            if($type=="Depot"){
+                                $transaction=new transaction();
+                                $transaction->setDateHeure($DateHeure);
+                                $transaction->setCode($code);
+                                $transaction->setMontant((int)$montant);
+                                $transaction->setType($type);
+                                transactionService::ajouterTransaction($transaction);
+                            }
                         }
                     }
                 }

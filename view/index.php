@@ -34,11 +34,11 @@
                 </tr>
             </thead>
             <tbody>
-                <?php foreach($games as $game):?>
+                <?php foreach($transactions as $transaction):?>
                 <tr>
                     <td><?php echo $transaction->setType(); ?></td>
-                    <td><?php echo $game->setMontant(); ?></td>
-                    <td><?php echo $game->setDateHeure(); ?></td>
+                    <td><?php echo $transaction->setMontant(); ?></td>
+                    <td><?php echo $transaction->setDateHeure(); ?></td>
                 </tr>
                 <?php endforeach;?>
             </tbody>
